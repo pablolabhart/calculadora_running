@@ -1,46 +1,9 @@
-# Astro Starter Kit: Basics
+# ¿Llega el Ato? - Calculadora de Running
 
-```sh
-npm create astro@latest -- --template basics
-```
+Esta es una sencilla aplicación web construida con Astro.js que ayuda a los corredores a estimar la distancia máxima que podrían correr en una carrera basándose en sus datos de entrenamiento recientes.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+La aplicación tiene un diseño moderno y responsive, con un fondo animado y una interfaz de "glassmorphism".
 
-## 🚀 Project Structure
+## Metodología del Cálculo
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Nota Importante:** El cálculo se basa en una adaptación simplificada de los principios de la fórmula de predicción de rendimiento de Pete Riegel. Está diseñado con fines de entretenimiento y motivación, principalmente para corredores principiantes. Los resultados son una estimación y no deben tomarse como un predictor de rendimiento garantizado.
