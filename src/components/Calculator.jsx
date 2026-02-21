@@ -19,7 +19,7 @@ export default function Calculator() {
     const ageVal = parseInt(age(), 10);
     const calculatedMaxHr = maxHr() ? parseInt(maxHr(), 10) : 207 - 0.7 * ageVal;
     const intensity = parseInt(avgHr(), 10) / calculatedMaxHr;
-    const weeklyKmVal = weeklyKm() ? parseInt(weeklyKm(), 10) : 0;
+    const weeklyKmVal = weeklyKm() ? parseFloat(weeklyKm()) : 0;
 
     let tlim;
 
@@ -70,7 +70,7 @@ export default function Calculator() {
         <div class="form-grid">
           <div class="form-group">
             <label for="distance">Distancia (km)</label>
-            <input type="number" id="distance" required value={distance()} onInput={(e) => setDistance(e.target.value)} />
+            <input type="number" step="any" id="distance" required value={distance()} onInput={(e) => setDistance(e.target.value)} />
           </div>
           <div class="form-group">
             <label for="time">Tiempo (min)</label>
@@ -90,7 +90,7 @@ export default function Calculator() {
           </div>
           <div class="form-group">
             <label for="weeklyKm">Kilómetros semanales (opcional)</label>
-            <input type="number" id="weeklyKm" value={weeklyKm()} onInput={(e) => setWeeklyKm(e.target.value)} />
+            <input type="number" step="any" id="weeklyKm" value={weeklyKm()} onInput={(e) => setWeeklyKm(e.target.value)} />
           </div>
         </div>
         <button type="submit" class="calculate-button">Calcular</button>
