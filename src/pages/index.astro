@@ -1,11 +1,202 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Calculator from '../components/Calculator';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="¿Llega el Ato?">
+	<div class="container">
+		<h1 class="title">¿Llega el Ato?</h1>
+		<p class="description">
+			Ingresa los datos de tu último entrenamiento para calcular la distancia máxima que podrías correr en una carrera.
+		</p>
+		<Calculator client:load />
+	</div>
 </Layout>
+
+<style is:global>
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+	.container {
+		background-color: rgba(255, 255, 255, 0.5);
+		backdrop-filter: blur(12px) saturate(150%);
+		-webkit-backdrop-filter: blur(12px) saturate(150%);
+		padding: 2.5rem;
+		border-radius: 16px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    	animation: fadeInDown 0.6s ease-out forwards;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-top: 1px solid rgba(255, 255, 255, 0.5);
+	}
+
+	.title {
+		font-size: 3rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 1rem;
+    	background: linear-gradient(45deg, #f97316, #ef4444, #ec4899);
+    	-webkit-background-clip: text;
+    	-webkit-text-fill-color: transparent;
+	}
+
+	.description {
+		font-size: 1.1rem;
+		text-align: center;
+		margin-bottom: 2.5rem;
+		color: #1f2937;
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 1.5rem;
+		}
+
+		.title {
+			font-size: 2.2rem;
+		}
+
+		.description {
+			font-size: 1rem;
+		}
+	}
+
+	.calculator-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 2.5rem;
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+
+	@media (min-width: 768px) {
+		.form-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form-group label {
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		color: #374151;
+	}
+
+	.form-group input {
+		padding: 0.8rem 1rem;
+		border: 1px solid transparent;
+		background-color: rgba(255, 255, 255, 0.5);
+		border-radius: 8px;
+		font-size: 1rem;
+		transition: border-color 0.2s, box-shadow 0.2s;
+		color: #1f2937;
+	}
+
+	.form-group input:focus {
+		outline: none;
+		border-color: #f97316;
+		box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
+	.calculate-button {
+		background-color: #ec4899;
+		color: white;
+		padding: 1rem;
+		border: none;
+		border-radius: 8px;
+		font-size: 1.2rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+	}
+
+	.calculate-button:hover {
+		background-color: #db2777;
+		transform: translateY(-3px) scale(1.02);
+		box-shadow: 0 7px 25px rgba(236, 72, 153, 0.5);
+	}
+
+	.results {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		text-align: center;
+	}
+
+	.results h2 {
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: #1f2937;
+		margin-bottom: 1rem;
+	}
+
+	.final-result {
+		font-size: 3.5rem;
+		font-weight: 700;
+    	background: linear-gradient(45deg, #4f46e5, #14b8a6);
+    	-webkit-background-clip: text;
+    	-webkit-text-fill-color: transparent;
+		margin: 0;
+	}
+
+	.debug-button {
+		background-color: transparent;
+		color: #6b7280;
+		border: none;
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		cursor: pointer;
+		margin-top: 2rem;
+		font-size: 0.9rem;
+		transition: all 0.3s;
+	}
+
+	.debug-button:hover {
+		color: #1f2937;
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+
+	.debug-info {
+		margin-top: 1rem;
+		padding: 1.5rem;
+		background-color: rgba(255, 255, 255, 0.3);
+		border-radius: 8px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		text-align: left;
+		color: #1f2937;
+	}
+
+	.debug-info h3 {
+		margin-top: 0;
+		font-size: 1.1rem;
+		color: #111827;
+	}
+
+	.debug-info ul {
+		list-style-type: none;
+		padding: 0;
+		margin-top: 1rem;
+	}
+
+	.debug-info li {
+		padding: 0.25rem 0;
+	}
+</style>
